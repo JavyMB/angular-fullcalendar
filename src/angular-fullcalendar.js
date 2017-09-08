@@ -2,19 +2,19 @@ angular.module('angular-fullcalendar',[])
     .value('CALENDAR_DEFAULTS',{
         locale:'en'
     })
-    .directive('gcoCalendar',['CALENDAR_DEFAULTS',gcoCalendarDirectiveFn]);
+    .directive('fc',['CALENDAR_DEFAULTS',fcDirectiveFn]);
 
-function gcoCalendarDirectiveFn(CALENDAR_DEFAULTS) {
+function fcDirectiveFn(CALENDAR_DEFAULTS) {
     return {
         restrict : 'A',
         scope : {
             eventSource : '=ngModel',
-            options : '='
+            options : '=fcOptions'
         },
-        link:function (scope, elm, attrs, controller) {
+        link:function (scope, elm) {
             var calendar;
             init();
-            scope.$watch('gcoOptions', function(newOptions,oldOptions) {
+            scope.$watch('options', function(newOptions,oldOptions) {
                 if (newOptions !== oldOptions) {
                     destroy();
                     init();
@@ -23,7 +23,7 @@ function gcoCalendarDirectiveFn(CALENDAR_DEFAULTS) {
                 }
             },true);
             scope.$on('$destroy', function () {
-                destroy()
+                destroy();
             });
 
             function init() {
@@ -40,7 +40,7 @@ function gcoCalendarDirectiveFn(CALENDAR_DEFAULTS) {
             function getOptions(options) {
                 return angular.extend(CALENDAR_DEFAULTS,{
                     events:scope.eventSource
-                },options)
+                },options);
             }
         }
     };
