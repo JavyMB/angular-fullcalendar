@@ -1,0 +1,22 @@
+{
+  "name": "angular-fullcalendar",
+  "version": "1.0.0",
+  "description": "A simple package solution to implement quickly fullcalendar on AngularJS projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JavyMB/angular-fullcalendar.git"
+  },
+  "keywords": [
+    "fullcalendar"
+  ],
+  "author": "JavyMB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JavyMB/angular-fullcalendar/issues"
+  },
+  "homepage": "https://github.com/JavyMB/angular-fullcalendar#readme"
+}
