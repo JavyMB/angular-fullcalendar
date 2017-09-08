@@ -1,3 +1,13 @@
+/*!
+ * angular-fullcalendar
+ * https://github.com/JavyMB/angular-fullcalendar#readme
+ * Version: 1.0.0 - 2017-09-08T15:24:06.186Z
+ * License: ISC
+ */
+
+
+(function () { 
+'use strict';
 angular.module('angular-fullcalendar',[])
     .value('CALENDAR_DEFAULTS',{
         locale:'en'
@@ -46,3 +56,5 @@ function fcDirectiveFn(CALENDAR_DEFAULTS) {
     };
 
 }
+
+}());
