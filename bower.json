@@ -1,7 +1,7 @@
 {
   "name": "angular-fullcalendar",
   "description": "A simple package solution to implement quickly fullcalendar on AngularJS projects",
-  "main": "./src/angular-fullcalendar.js",
+  "main": "./dist/angular-fullcalendar.js",
   "authors": [
     "JavyMB"
   ],
@@ -17,5 +17,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "angular": "^1.6.6"
+  }
 }
