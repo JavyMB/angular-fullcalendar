@@ -10,7 +10,7 @@
     "fullcalendar"
   ],
   "homepage": "https://github.com/JavyMB/angular-fullcalendar",
-  "private": true,
+  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
