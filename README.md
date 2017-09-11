@@ -51,4 +51,4 @@ You can use the [Arshaw Fullcalendar options in official docs](https://fullcalen
 - Fullcalendar.js 3.0 and its dependencies
 - gcal-plugin (optional)
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/javymb.svg?style=social&label=Follow)]()
+[![Twitter Follow](https://img.shields.io/twitter/follow/javymb.svg?style=social&label=Follow)](https://twitter.com/JavyMB)
