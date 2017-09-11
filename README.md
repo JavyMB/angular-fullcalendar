@@ -18,10 +18,10 @@ Installing pacakge with npm:
     npm i  angular-fullcalendar --save
 ```
 Use directive as an attribute and you can pass the fullcalendar options and the list of events in ngModel.
+
 ```html
   <div fc fc-options="optionsObj" ng-model="eventsObj" ></div>
 ```
-
 You can use the [Arshaw Fullcalendar options in official docs](https://fullcalendar.io/docs/).
 ```js
     //  <div fc fc-options="calendarOptions" ng-model="events" ></div>
