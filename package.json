@@ -1,6 +1,6 @@
 {
   "name": "angular-fullcalendar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple package solution to implement quickly fullcalendar on AngularJS projects",
   "main": "./dist/angular-fullcalendar.js",
   "scripts": {

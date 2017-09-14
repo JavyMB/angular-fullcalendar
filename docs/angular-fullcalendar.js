@@ -1,7 +1,7 @@
 /*!
  * angular-fullcalendar
  * https://github.com/JavyMB/angular-fullcalendar#readme
- * Version: 1.0.0 - 2017-09-13T19:00:58.738Z
+ * Version: 1.0.1 - 2017-09-14T15:14:58.066Z
  * License: ISC
  */
 

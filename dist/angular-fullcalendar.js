@@ -1,7 +1,7 @@
 /*!
  * angular-fullcalendar
  * https://github.com/JavyMB/angular-fullcalendar#readme
- * Version: 1.0.0 - 2017-09-08T15:24:06.186Z
+ * Version: 1.0.1 - 2017-09-14T15:14:58.066Z
  * License: ISC
  */
 
@@ -18,24 +18,14 @@ function fcDirectiveFn(CALENDAR_DEFAULTS) {
     return {
         restrict : 'A',
         scope : {
-            eventSource : '=ngModel',
-            options : '=fcOptions'
+            eventSource : '=ngModel',options : '=fcOptions'
         },
         link:function (scope, elm) {
             var calendar;
             init();
-            scope.$watch('options', function(newOptions,oldOptions) {
-                if (newOptions !== oldOptions) {
-                    destroy();
-                    init();
-                } else if ((newOptions && angular.isUndefined(calendar))) {
-                    init();
-                }
-            },true);
-            scope.$on('$destroy', function () {
-                destroy();
-            });
-
+            scope.$watch('eventSource', watchDirective,true);
+            scope.$watch('options',watchDirective,true);
+            scope.$on('$destroy', function () { destroy();});
             function init() {
                 if (!calendar) {
                     calendar = $(elm).html('');
@@ -51,6 +41,14 @@ function fcDirectiveFn(CALENDAR_DEFAULTS) {
                 return angular.extend(CALENDAR_DEFAULTS,{
                     events:scope.eventSource
                 },options);
+            }
+            function watchDirective(newOptions,oldOptions) {
+                if (newOptions !== oldOptions) {
+                    destroy();
+                    init();
+                } else if ((newOptions && angular.isUndefined(calendar))) {
+                    init();
+                }
             }
         }
     };
