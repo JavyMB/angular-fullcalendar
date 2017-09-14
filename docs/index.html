@@ -2,37 +2,31 @@
 <html lang="en" ng-app="demo">
     <head>
         <meta charset="utf-8">
-        <title>AngularJS ui-event</title>
-
+        <title>Angular Fullcalendar Directive</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <link rel="stylesheet" href="demo.css">
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.5.1/fullcalendar.min.css">
 
         <!-- angular-fullcalendar files files -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.5.1/fullcalendar.min.js"></script>
 
-        <script src="angular-fullcalendar.min.js"></script>
-        <style>
-            body {
-                padding: 15px;
-            }
-        </style>
-    </head>
-
-    <body class="container">
-
+        <script src="../dist/angular-fullcalendar.js"></script>
         <script>
             var app = angular.module('demo', ['angular-fullcalendar']);
-            app.controller('CalendarCtrl', function($scope) {
+            app.controller('CalendarCtrl', ['$scope',function($scope) {
                 $scope.calendarOptions = {
 
                 };
                 $scope.events = [
                     {
                         title: 'My Event',
-                        start: new Date(),
+                        start: new moment().add(-1,'days'),
                         description: 'This is a cool event',
                         color:'#5f6dd0'
                     },
@@ -42,44 +36,86 @@
                         description: 'This is a cool event',
                         color:'#af6dd0'
                     }
-                ]
-            });
+                ];
+                $scope.addEvent = addEvent;
+                var count = 0;
+                function addEvent(){
+                      $scope.events.push({
+                          title: 'Event '+ count,
+                          start: new moment(),
+                          description: 'This is a cool event',
+                          color:'#5f6dd0'
+                      });
+                      count++;
+                }
+            }]);
         </script>
-        <section id="event">
-            <div class="page-header">
-                <h1>AngularJS Fullcalendar</h1>
-            </div>
-        </section>
-        <section  ng-controller="CalendarCtrl" class="row">
-          <h3>Demo</h3>
-            <p></p>
-            <div fc fc-options="calendarOptions" ng-model="events" >
-            </div>
-        </section>
-        <section>
-          <h3>How do I use it ?</h3>
-          <p>As an attribute </p>
-          <pre>  &lt;div fc fc-options=&quot;calendarOoptions&quot; ng-model=&quot;events&quot;   &gt;  &lt;/div&gt; </pre>
-          <p>Then in your controller just add the calendar options and the list of events</p>
-          <pre class="prettyprint">
+    </head>
 
-              $scope.calendarOoptions =  {
-              //.. Fullcalendar.js options click here to view details
-              };
-              $scope.events = [
-                    {
-                        title: 'My Event',
-                        start: new Date(),// :) how you can use Date
-                        description: 'This is a cool event',
-                        color:'#5f6dd0'
-                    },
-                    {
-                        title: 'My Event',
-                        start: new moment().add(1,'days'), // :) or MomentJS
-                        description: 'This is a cool event',
-                        color:'#af6dd0'
-                    }
-              ];
-        </section>
+    <body class="">
+        <div class="header-title">
+          <section class="container header-title-container ">
+                <i class="title-icon glyphicon glyphicon-calendar"></i>
+                <h1 class="title">Angular Fullcalendar</h1>
+                <p class="header-description">A simple light directive</p>
+                <a href="https://github.com/JavyMB/angular-fullcalendar" class="header-link">Code on github</a>
+          </section>
+        </div>
+        <div class="demo-container">
+          <section  ng-controller="CalendarCtrl" class="container demo">
+            <button type="button" name="button" class="btn btn-fullcalendar-primary" ng-click="addEvent()">Add Today Event</button>
+            <p></p>
+            <div class="demo-calendar">
+              <div fc fc-options="calendarOptions" ng-model="events" class="calendar">
+              </div>
+            </div>
+
+          </section>
+        </div>
+        <div class="container">
+
+          <section>
+            <h3>How do I use it ?</h3>
+            <p>As an attribute </p>
+            <pre>  &lt;div fc fc-options=&quot;calendarOoptions&quot; ng-model=&quot;events&quot;   &gt;  &lt;/div&gt; </pre>
+            <p>Then in your controller just add the calendar options and the list of events</p>
+            <pre class="prettyprint">
+
+                $scope.calendarOoptions =  {
+                //.. Fullcalendar.js options click here to view details
+                };
+                $scope.events = [
+                      {
+                          title: 'My Event',
+                          start: new Date(),// :) how you can use Date
+                          description: 'This is a cool event',
+                          color:'#5f6dd0'
+                      },
+                      {
+                          title: 'My Event',
+                          start: new moment().add(1,'days'), // :) or MomentJS
+                          description: 'This is a cool event',
+                          color:'#af6dd0'
+                      }
+                ];
+          </section>
+          <section>
+            <h3>Requirements</h3>
+            <p>
+              - AngularJS (1.6.x) <br>
+              - MomentJS<br>
+              - Fullcalendar.js 3.0 and its dependencies<br>
+              - gcal-plugin (optional)<br>
+            </p>
+          </section>
+          <section class="footer">
+            <h3>Contribute <i class="glyphicon glyphicon-heart-empty"></i></h3>
+            <p>If you have suggestions and ideas on how to make it more simple please fork the repository and submit your Pull request</p>
+            <a href="https://twitter.com/JavyMB"><img src="https://camo.githubusercontent.com/9e91f88ad27d530dd2b0c6f8575d4f2c9fd6ea91/68747470733a2f2f696d672e736869656c64732e696f2f747769747465722f666f6c6c6f772f6a6176796d622e7376673f7374796c653d736f6369616c266c6162656c3d466f6c6c6f77" alt="Twitter Follow" data-canonical-src="https://img.shields.io/twitter/follow/javymb.svg?style=social&amp;label=Follow" style="max-width:100%;"></a>
+          </section>
+        </div>
+
+
+
     </body>
 </html>

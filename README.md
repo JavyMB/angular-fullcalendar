@@ -8,6 +8,8 @@
 A simple and lite directive for quickly include Fullcalendar (v.3) in your AngularJS projects.
 Perfomed for AngularJS 1.6.x
 
+You can view [DEMO](https://javymb.github.io/angular-fullcalendar/).
+
 #### How to use
 Installing package with bower:
 ```

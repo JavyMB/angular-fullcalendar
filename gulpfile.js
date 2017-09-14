@@ -45,7 +45,7 @@ gulp.task('webserver', function() {
 // });
 
 gulp.task('clean', function(cb) {
-  del(['dist'], cb);
+  del(['dist','docs/*.js'], cb);
 });
 
 gulp.task('scripts', ['clean'], function() {
@@ -71,9 +71,11 @@ gulp.task('scripts', ['clean'], function() {
       timestamp: (new Date()).toISOString(), pkg: config.pkg
     }))
     .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('docs'))
     .pipe(uglify({preserveComments: 'some'}))
     .pipe(rename({ext:'.min.js'}))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('docs'));
 
 });
 //
