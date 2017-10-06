@@ -1,3 +1,13 @@
 language: node_js
 node_js:
   - "stable"
+git:
+  depth: 10
+before_install:
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- npm install -qg bower gulp-cli
+- npm install -q
+- bower install --force
+- bower install --force
+script: gulp scripts
