@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  color:#F6F6F6;
+  color: #a5a5a5;
 }
 h1 {font-weight: bolder !important;}
 .title {
@@ -17,6 +17,13 @@ p {
 .header-title {
   padding:80px 0px;
   background-image: linear-gradient(-45deg, #37ecba 0%, #72afd3 100%);
+
+}
+@media(max-width: 768px){
+  .header-title{
+    padding:40px 0px;
+  }
+  .demo-container{ padding:0px 8px ;}
 }
 .header-title  p {
   color:white;
