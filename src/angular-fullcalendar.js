@@ -27,10 +27,25 @@ function fcDirectiveFn(CALENDAR_DEFAULTS) {
                   calendar.fullCalendar('destroy');
               }
             }
-            function getOptions(options) {
-                return angular.extend(CALENDAR_DEFAULTS,{
-                    events:scope.eventSource
-                },options);
+             function getOptions(options) {
+                const event_source=scope.eventSource;                
+                let isMultiSource=false;
+                Object.keys(event_source[0]).forEach(key => {
+                    if(key==="events"){
+                          isMultiSource=true;
+                    }
+                })
+                
+                if(isMultiSource){
+                    return angular.extend(CALENDAR_DEFAULTS,{
+                        eventSources:event_source
+                    },options);
+                }else{
+                    return angular.extend(CALENDAR_DEFAULTS,{
+                        events:event_source
+                    },options);
+                }            
+                
             }
             function watchDirective(newOptions,oldOptions) {
                 if (newOptions !== oldOptions) {
