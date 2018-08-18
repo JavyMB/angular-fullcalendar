@@ -32,6 +32,8 @@ You can use the [Arshaw Fullcalendar options in official docs](https://fullcalen
         $scope.calendarOptions = {
 
         };
+		// For single source
+		//  <div fc fc-options="calendarOptions" ng-model="events" ></div>
         $scope.events = [
             {
                 title: 'My Event',
@@ -45,7 +47,98 @@ You can use the [Arshaw Fullcalendar options in official docs](https://fullcalen
                 description: 'This is a cool event',
                 color:'#af6dd0'
             }
-        ]
+        ];
+		
+		//For Multiple source
+		//  <div fc fc-options="calendarOptions" ng-model="eventSourceObj" ></div>
+		$scope.eventSourceObj = [
+
+			   {
+				  events: [ // put the array in the `events` property
+					{
+					  title  : 'My Event',
+					  start  : new Date(),
+					  allDay: true
+
+					},
+					 {
+						  title:  'My Event',
+						  start:  '2018-07-16T14:30:00',
+						  allDay: false
+					},
+					{
+					  title  : 'My Event',
+					  start  : new Date(),
+					  allDay: false
+					}
+				  ],			  
+					color: 'rgb(217,56,54)',     
+					textColor: 'rgb(0,0,0)'			  
+				},   
+
+				{
+				  events: [ // put the array in the `events` property
+					{
+					  title  : 'My Event',
+					  start  : new moment().add(2,'days')
+					},
+					{
+					  title  : 'My Event',
+					  start  : new moment().add(3,'days')
+					 
+					},
+					{
+					  title  : 'My Event',
+					  start  : new moment().add(4,'days')
+					}
+				  ],
+					color: "rgb(242,170,68)",     // an option!
+					textColor: "rgb(0,0,0)"// an option!
+			  
+				},
+				{
+				  events: [ // put the array in the `events` property
+					{
+					  title  : 'My Event',
+					  start  : new moment().add(2,'days')
+					},
+					{
+					  title  : 'My Event',
+					  start  : new moment().add(3,'days')
+					 
+					},
+					{
+					  title  : 'My Event',
+					  start  : new moment().add(4,'days')
+					}
+				  ],
+					color: "rgb(201,201,201)",     // an option!
+					textColor: "rgb(0,0,0)"// an option!
+			  
+				},
+				{
+				  events: [ // put the array in the `events` property
+					{
+					  title  : 'My Event',
+					  start  : new moment().add(2,'days')
+					},
+					{
+					  title  : 'My Event',
+					  start  : new moment().add(3,'days')
+					 
+					},
+					{
+					  title  : 'My Event',
+					  start  : new moment().add(4,'days')
+					}
+				  ],
+					color: "rgb(22,173,55)",     // an option!
+					textColor: "rgb(0,0,0)"// an option!
+			  
+				}
+
+			  ];
+		
     });
 ```
 #### Requirements
